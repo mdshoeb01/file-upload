@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package models;
+
+
+message FileUploadRequest {
+    string name = 1;
+    string type  = 2;
+    bytes data = 3;
+}
+
+
+message FileUploadResponse {
+    string status = 1;
+}
