@@ -14,7 +14,7 @@ import (
 func FileUploadController(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+    w.Header().Set("Access-Control-Allow-Headers", "*")
 	data, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		log.Println("Unable to read message from request : ", err)
@@ -26,7 +26,7 @@ func FileUploadController(w http.ResponseWriter, req *http.Request) {
 		log.Println(err)
 	}
 
-	ioutil.WriteFile("/Users/Mohammed.Shoeb/go/src/file-upload/data/" + reqMsg.Name + reqMsg.Type, reqMsg.GetData(), 644)
+	ioutil.WriteFile("/Users/Mohammed.Shoeb/go/src/file-upload/data/" + reqMsg.Name + reqMsg.Type, reqMsg.GetData(), 777)
 	
 
 	w.WriteHeader(http.StatusAccepted)
