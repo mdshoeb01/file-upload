@@ -9,6 +9,6 @@ import (
 
 func Routes(router *mux.Router) {
 
-	router.HandleFunc("/upload", controllers.FileUploadController).Methods("POST")
+	router.HandleFunc("/upload", controllers.FileUploadController).Methods("POST", "OPTIONS")
 
 }
