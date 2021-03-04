@@ -12,6 +12,9 @@ import (
 )
 
 func FileUploadController(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	data, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		log.Println("Unable to read message from request : ", err)
